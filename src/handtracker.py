@@ -33,9 +33,8 @@ class handTracker():
                 for  handLms in res.multi_hand_landmarks:
                     for id,lm in enumerate(handLms.landmark):
                         if id==8:
-                            w,h=ap.screen.size()
-                            cx,cy=int(lm.x*w),int(lm.y*h)
+                            w,h=640,480
+                            cx,cy=lm.x*w,lm.y*h
                             pos.append([cx,cy])
                     self.mpDraw.draw_landmarks(img, handLms, self.mpHands.HAND_CONNECTIONS)
             return img,pos
-            # return pos
